@@ -1,0 +1,12 @@
+import re
+
+def to_jaden_case(string): #this removes the unexpected problem of lower cases becoming upper cases after special symbols
+    regex = re.compile("[a-z]+('[a-z]+)?", re.I)
+    return regex.sub(lambda grp: grp.group(0)[0].upper() + grp.group(0)[1:].lower(), string)
+
+print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
+
+
+#simpler solution below
+#def to_jaden_case(string):
+#    return ' '.join(word.capitalize() for word in string.split())
